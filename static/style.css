@@ -3,7 +3,7 @@ body {
 }
 
 .gameboy {
-  max-width: 800px;
+  max-width: 1000px;
   padding: 2vw 4vw;
   margin: 0 auto;
   border-radius: 10px;
