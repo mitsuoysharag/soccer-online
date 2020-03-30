@@ -26,6 +26,8 @@
     .btn:focus {
       outline: none;
     }
+
+    .btn--up {}
   </style>
 </head>
 
@@ -36,12 +38,14 @@
     </div>
     <canvas id="canvas"></canvas>
     <div>
+      <div>
+        <button class="btn btn--up" onmousedown=moveY(-1) onmouseup=moveY(0) ontouchstart=moveY(-1)
+          ontouchend=moveY(0)>up</button>
+      </div>
       <button class="btn" onmousedown=moveX(-1) onmouseup=moveX(0) ontouchstart=moveX(-1)
         ontouchend=moveX(0)>left</button>
       <button class="btn" onmousedown=moveX(1) onmouseup=moveX(0) ontouchstart=moveX(1)
         ontouchend=moveX(0)>right</button>
-      <button class="btn" onmousedown=moveY(-1) onmouseup=moveY(0) ontouchstart=moveY(-1)
-        ontouchend=moveY(0)>up</button>
       <button class="btn" onmousedown=moveY(1) onmouseup=moveY(0) ontouchstart=moveY(1)
         ontouchend=moveY(0)>down</button>
     </div>
