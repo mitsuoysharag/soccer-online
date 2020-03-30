@@ -64,7 +64,7 @@ socket.on('state', ({ players, ball }) => {
     context.arc(player.pos.x, player.pos.y, 20, 0, 2 * Math.PI);
     context.fill();
   }
-  context.fillStyle = 'black';
+  context.fillStyle = 'white';
   context.beginPath();
   context.arc(ball.pos.x, ball.pos.y, 12, 0, 2 * Math.PI);
   context.fill();

@@ -6,20 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A Multiplayer Game</title>
   <style>
+    body {
+      background: #000;
+    }
+
+    .menu {
+      margin-bottom: 10px;
+    }
+
     canvas {
       width: 1100px;
       height: 700px;
-      border: 5px solid black;
+      border: 5px solid #fff;
     }
 
     .btn {
-      width: 200px;
-      height: 200px;
-      background: #7d7dff;
-      color: #fff;
-      font-size: 40px;
       border: none;
-      border-radius: 50%;
       cursor: pointer;
     }
 
@@ -27,27 +29,61 @@
       outline: none;
     }
 
-    .btn--up {}
+    .btn--menu {
+      padding: 10px 20px;
+      font-size: 30px;
+      background: #2f7933;
+      color: #fff;
+    }
+
+    .btn--control {
+      width: 300px;
+      height: 300px;
+      font-size: 40px;
+      background: #7d7dff;
+      color: #fff;
+      border-radius: 50%;
+    }
+
+
+
+    .center {
+      display: flex;
+      justify-content: center;
+    }
+
+    .control {
+      margin: 20px auto;
+      display: grid;
+      grid-template-columns: repeat(3, 300px);
+      grid-template-rows: repeat(3, 300px);
+    }
   </style>
 </head>
 
 <body>
   <div>
-    <div class="menu">
-      <button onclick="reset()">Reset</button>
+    <div class="center menu">
+      <button class="btn btn--menu" onclick="reset()">Reset</button>
     </div>
-    <canvas id="canvas"></canvas>
-    <div>
-      <div>
-        <button class="btn btn--up" onmousedown=moveY(-1) onmouseup=moveY(0) ontouchstart=moveY(-1)
-          ontouchend=moveY(0)>up</button>
+    <div class="center">
+      <canvas id="canvas"></canvas>
+    </div>
+    <div class="center">
+      <div class="control">
+        <div></div>
+        <button class="btn btn--control" onmousedown=moveY(-1) onmouseup=moveY(0) ontouchstart=moveY(-1)
+          ontouchend=moveY(0)></button>
+        <div></div>
+        <button class="btn btn--control" onmousedown=moveX(-1) onmouseup=moveX(0) ontouchstart=moveX(-1)
+          ontouchend=moveX(0)></button>
+        <div></div>
+        <button class="btn btn--control" onmousedown=moveX(1) onmouseup=moveX(0) ontouchstart=moveX(1)
+          ontouchend=moveX(0)></button>
+        <div></div>
+        <button class="btn btn--control" onmousedown=moveY(1) onmouseup=moveY(0) ontouchstart=moveY(1)
+          ontouchend=moveY(0)></button>
       </div>
-      <button class="btn" onmousedown=moveX(-1) onmouseup=moveX(0) ontouchstart=moveX(-1)
-        ontouchend=moveX(0)>left</button>
-      <button class="btn" onmousedown=moveX(1) onmouseup=moveX(0) ontouchstart=moveX(1)
-        ontouchend=moveX(0)>right</button>
-      <button class="btn" onmousedown=moveY(1) onmouseup=moveY(0) ontouchstart=moveY(1)
-        ontouchend=moveY(0)>down</button>
     </div>
   </div>
   <script src="/socket.io/socket.io.js"></script>
