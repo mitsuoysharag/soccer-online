@@ -56,7 +56,7 @@ canvas.height = 700;
 var context = canvas.getContext('2d');
 
 socket.on('state', ({ players, ball }) => {
-  context.clearRect(0, 0, 1100, 700);
+  context.clearRect(0, 0, canvas.width, canvas.height);
   for (var id in players) {
     var player = players[id];
     context.fillStyle = player.color;
