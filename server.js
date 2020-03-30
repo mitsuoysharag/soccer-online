@@ -51,11 +51,11 @@ class Player {
       let newPosY = this.pos.y + this.dir.y * this.vel
       let offset = 20
 
-      if (newPosX > width - offset || newPosX < offset) {
-        this.dir.x *= 0
+      if (newPosX > this.lim.width - offset || newPosX < offset) {
+        this.dir.x = 0
       }
-      if (newPosY > height - offset || newPosX < offset) {
-        this.dir.y *= 0
+      if (newPosY > this.lim.height - offset || newPosY < offset) {
+        this.dir.y = 0
       }
 
       this.pos.x += this.dir.x * this.vel
@@ -76,10 +76,10 @@ class Ball {
     let newPosY = this.pos.y + this.dir.y * this.vel
     let offset = 10
 
-    if (newPosX > width - offset || newPosX < offset) {
+    if (newPosX > this.lim.width - offset || newPosX < offset) {
       this.dir.x *= -1
     }
-    if (newPosY > height - offset || newPosY < offset) {
+    if (newPosY > this.lim.height - offset || newPosY < offset) {
       this.dir.y *= -1
     }
 
@@ -119,6 +119,16 @@ io.on('connection', function (socket) {
   });
   socket.on('disconnect', function () {
     delete players[socket.id]
+  });
+  socket.on('reset', function () {
+    ball.pos = {
+      x: width / 2,
+      y: height / 2
+    }
+    ball.dir = {
+      x: 0,
+      y: 0
+    }
   });
 });
 

@@ -62,3 +62,7 @@ socket.on('state', ({ players, ball }) => {
   context.arc(ball.pos.x, ball.pos.y, 12, 0, 2 * Math.PI);
   context.fill();
 });
+
+function reset() {
+  socket.emit('reset');
+}
