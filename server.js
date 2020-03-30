@@ -1,11 +1,11 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var socketIO = require('socket.io', { rememberTransport: false, transports: ['WebSocket', 'Flash Socket', 'AJAX long-polling'] });
+var socketIO = require('socket.io');
 
 var app = express();
 var server = http.Server(app);
-var io = socketIO(server);
+var io = socketIO(server, { wsEngine: 'ws' });
 
 app.use('/static', express.static(__dirname + '/static'));
 
