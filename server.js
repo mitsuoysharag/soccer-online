@@ -34,6 +34,7 @@ class Player {
     this.vel = vel
     this.lim = lim
     this.ball = ball
+    this.color = 'hsl(' + 360 * Math.random() + ', 50%, 50%)'
   }
   update() {
     //Kick

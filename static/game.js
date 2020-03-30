@@ -50,9 +50,9 @@ var context = canvas.getContext('2d');
 
 socket.on('state', ({ players, ball }) => {
   context.clearRect(0, 0, 1100, 700);
-  context.fillStyle = 'green';
   for (var id in players) {
     var player = players[id];
+    context.fillStyle = player.color;
     context.beginPath();
     context.arc(player.pos.x, player.pos.y, 20, 0, 2 * Math.PI);
     context.fill();
