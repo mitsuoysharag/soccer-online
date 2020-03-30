@@ -22,8 +22,8 @@ server.listen(PORT, function () {
 
 // Add the WebSocket handlers
 let players = {};
-let player_velocity = 8;
-let ball_velocity = 14;
+let player_velocity = 5;
+let ball_velocity = 8;
 let width = 1100;
 let height = 700;
 
@@ -139,4 +139,4 @@ setInterval(function () {
     player.update()
   });
   io.sockets.emit('state', { players, ball });
-}, 1000 / 45);
+}, 1000 / 60);

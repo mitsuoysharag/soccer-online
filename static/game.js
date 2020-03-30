@@ -40,7 +40,7 @@ document.addEventListener('keyup', function (event) {
 socket.emit('new player');
 setInterval(function () {
   socket.emit('movement', dir);
-}, 1000 / 45);
+}, 1000 / 60);
 
 //Canvas
 var canvas = document.getElementById('canvas');
