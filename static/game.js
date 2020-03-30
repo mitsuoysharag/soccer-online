@@ -37,6 +37,13 @@ document.addEventListener('keyup', function (event) {
   }
 });
 
+function moveX(x) {
+  dir.x = x
+}
+function moveY(y) {
+  dir.y = y
+}
+
 socket.emit('new player');
 setInterval(function () {
   socket.emit('movement', dir);
